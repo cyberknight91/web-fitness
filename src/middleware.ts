@@ -1,19 +1,20 @@
-import { auth } from "@/lib/auth";
+import NextAuth from "next-auth";
 import { NextResponse } from "next/server";
+import { authConfig } from "@/lib/auth.config";
+
+const { auth } = NextAuth(authConfig);
 
 export default auth((req) => {
   const { pathname } = req.nextUrl;
   const isLoggedIn = !!req.auth;
   const role = req.auth?.user?.role;
 
-  // Protect dashboard routes
   if (pathname.startsWith("/dashboard")) {
     if (!isLoggedIn) {
       return NextResponse.redirect(new URL("/login", req.url));
     }
   }
 
-  // Protect admin routes
   if (pathname.startsWith("/admin")) {
     if (!isLoggedIn) {
       return NextResponse.redirect(new URL("/login", req.url));
@@ -23,7 +24,6 @@ export default auth((req) => {
     }
   }
 
-  // Redirect logged-in users away from auth pages
   if (pathname.startsWith("/login") || pathname.startsWith("/register")) {
     if (isLoggedIn) {
       if (role === "ADMIN") {
