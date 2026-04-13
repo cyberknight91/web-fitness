@@ -1,0 +1,225 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum Role {
+  CLIENT
+  ADMIN
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      Role     @default(CLIENT)
+  phone     String?
+  avatar    String?
+  age       Int?
+  height    Float?
+  weight    Float?
+  goal      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  routines     AssignedRoutine[]
+  mealPlans    AssignedMealPlan[]
+  progressLogs ProgressLog[]
+  sentMessages     Message[] @relation("SentMessages")
+  receivedMessages Message[] @relation("ReceivedMessages")
+  workoutLogs  WorkoutLog[]
+
+  @@index([email])
+}
+
+model Exercise {
+  id          String @id @default(cuid())
+  name        String
+  muscleGroup String
+  description String?
+  videoUrl    String?
+  imageUrl    String?
+
+  routineDayExercises RoutineDayExercise[]
+
+  @@index([muscleGroup])
+}
+
+model Routine {
+  id          String   @id @default(cuid())
+  name        String
+  description String?
+  days        RoutineDay[]
+  assignments AssignedRoutine[]
+  createdAt   DateTime @default(now())
+}
+
+model RoutineDay {
+  id        String             @id @default(cuid())
+  dayOfWeek Int
+  routineId String
+  routine   Routine            @relation(fields: [routineId], references: [id], onDelete: Cascade)
+  exercises RoutineDayExercise[]
+
+  @@index([routineId])
+}
+
+model RoutineDayExercise {
+  id           String     @id @default(cuid())
+  routineDayId String
+  routineDay   RoutineDay @relation(fields: [routineDayId], references: [id], onDelete: Cascade)
+  exerciseId   String
+  exercise     Exercise   @relation(fields: [exerciseId], references: [id])
+  sets         Int
+  reps         String
+  restSeconds  Int?
+  notes        String?
+  order        Int
+
+  @@index([routineDayId])
+}
+
+model AssignedRoutine {
+  id        String    @id @default(cuid())
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  routineId String
+  routine   Routine   @relation(fields: [routineId], references: [id], onDelete: Cascade)
+  startDate DateTime
+  endDate   DateTime?
+  active    Boolean   @default(true)
+
+  @@index([userId])
+  @@index([routineId])
+}
+
+model WorkoutLog {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  exerciseId String
+  sets       Int
+  reps       Int
+  weight     Float?
+  notes      String?
+  loggedAt   DateTime @default(now())
+
+  @@index([userId])
+  @@index([exerciseId])
+}
+
+model MealPlan {
+  id          String             @id @default(cuid())
+  name        String
+  description String?
+  meals       Meal[]
+  assignments AssignedMealPlan[]
+  createdAt   DateTime           @default(now())
+}
+
+model Meal {
+  id         String   @id @default(cuid())
+  mealPlanId String
+  mealPlan   MealPlan @relation(fields: [mealPlanId], references: [id], onDelete: Cascade)
+  name       String
+  ingredients String
+  calories   Int?
+  protein    Float?
+  carbs      Float?
+  fat        Float?
+  order      Int
+
+  @@index([mealPlanId])
+}
+
+model AssignedMealPlan {
+  id         String    @id @default(cuid())
+  userId     String
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  mealPlanId String
+  mealPlan   MealPlan  @relation(fields: [mealPlanId], references: [id], onDelete: Cascade)
+  startDate  DateTime
+  endDate    DateTime?
+  active     Boolean   @default(true)
+
+  @@index([userId])
+  @@index([mealPlanId])
+}
+
+model ProgressLog {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  weight     Float?
+  chest      Float?
+  waist      Float?
+  hips       Float?
+  leftArm    Float?
+  rightArm   Float?
+  leftLeg    Float?
+  rightLeg   Float?
+  photoFront String?
+  photoSide  String?
+  photoBack  String?
+  notes      String?
+  loggedAt   DateTime @default(now())
+
+  @@index([userId])
+}
+
+model SuccessStory {
+  id           String   @id @default(cuid())
+  clientName   String
+  testimonial  String
+  photoBefore  String?
+  photoAfter   String?
+  weightBefore Float?
+  weightAfter  Float?
+  duration     String?
+  featured     Boolean  @default(false)
+  createdAt    DateTime @default(now())
+}
+
+model BlogPost {
+  id          String    @id @default(cuid())
+  title       String
+  slug        String    @unique
+  content     String
+  coverImage  String?
+  published   Boolean   @default(false)
+  publishedAt DateTime?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([slug])
+}
+
+model Message {
+  id         String   @id @default(cuid())
+  fromUserId String
+  toUserId   String
+  content    String
+  read       Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  fromUser   User     @relation("SentMessages", fields: [fromUserId], references: [id], onDelete: Cascade)
+  toUser     User     @relation("ReceivedMessages", fields: [toUserId], references: [id], onDelete: Cascade)
+
+  @@index([fromUserId])
+  @@index([toUserId])
+}
+
+model ContactSubmission {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  service   String?
+  message   String
+  createdAt DateTime @default(now())
+}
