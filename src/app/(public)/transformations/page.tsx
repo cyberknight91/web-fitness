@@ -1,9 +1,19 @@
-export const dynamic = "force-dynamic";
+// Revalida cada hora. Las historias nuevas aparecen al refrescar pasado ese tiempo;
+// para invalidación inmediata usar revalidatePath('/transformations') desde el admin.
+export const revalidate = 3600;
 
+import Image from "next/image";
+import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Star, TrendingDown } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Transformaciones",
+  description:
+    "Resultados reales de clientes que lograron su transformación física con UgiarosFit. Historias de éxito con fotos antes y después.",
+};
 
 export default async function TransformationsPage() {
   const stories = await prisma.successStory.findMany({
@@ -29,7 +39,13 @@ export default async function TransformationsPage() {
                 <div className="grid grid-cols-2 gap-1 p-2">
                   <div className="relative aspect-[3/4] overflow-hidden rounded-lg bg-muted">
                     {story.photoBefore ? (
-                      <img src={story.photoBefore} alt="Antes" className="h-full w-full object-cover" />
+                      <Image
+                        src={story.photoBefore}
+                        alt={`${story.clientName} antes de la transformación`}
+                        fill
+                        sizes="(max-width: 768px) 50vw, 200px"
+                        className="object-cover"
+                      />
                     ) : (
                       <div className="flex h-full items-center justify-center text-sm text-muted-foreground">Antes</div>
                     )}
@@ -37,7 +53,13 @@ export default async function TransformationsPage() {
                   </div>
                   <div className="relative aspect-[3/4] overflow-hidden rounded-lg bg-muted">
                     {story.photoAfter ? (
-                      <img src={story.photoAfter} alt="Despues" className="h-full w-full object-cover" />
+                      <Image
+                        src={story.photoAfter}
+                        alt={`${story.clientName} después de la transformación`}
+                        fill
+                        sizes="(max-width: 768px) 50vw, 200px"
+                        className="object-cover"
+                      />
                     ) : (
                       <div className="flex h-full items-center justify-center text-sm text-muted-foreground">Despues</div>
                     )}

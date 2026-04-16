@@ -1,8 +1,15 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Dumbbell, Utensils, Monitor, Users, CheckCircle, ArrowRight } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Servicios",
+  description:
+    "Entrenamiento personal, planes de nutrición, coaching online y sesiones grupales. Programas diseñados para tus objetivos específicos.",
+};
 
 const services = [
   {

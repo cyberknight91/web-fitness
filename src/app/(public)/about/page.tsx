@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import { Card, CardContent } from "@/components/ui/card";
 import { Award, BookOpen, Heart, Target } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Sobre Mi",
+  description:
+    "Conoce a Victor Ajileas Ugiaros, entrenador personal certificado con más de 10 años de experiencia ayudando a clientes a transformar su cuerpo y su vida.",
+};
 
 const certifications = [
   "Entrenador Personal Certificado NSCA",
@@ -17,14 +24,14 @@ export default function AboutPage() {
         <div className="text-center">
           <h1 className="font-heading text-4xl font-bold sm:text-5xl">Sobre Mi</h1>
           <p className="mt-4 text-lg text-muted-foreground">
-            Dedicados a ayudarte a convertirte en la mejor version de ti mismo
+            Dedicado a ayudarte a convertirte en la mejor version de ti mismo
           </p>
         </div>
 
         <div className="mt-16 grid items-center gap-12 lg:grid-cols-2">
           <div className="relative aspect-square overflow-hidden rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5">
             <div className="flex h-full items-center justify-center text-6xl font-heading font-black text-primary/20">
-              FP
+              VU
             </div>
           </div>
           <div>

@@ -1,10 +1,19 @@
-export const dynamic = "force-dynamic";
+// Revalida cada hora. El admin puede llamar revalidatePath('/blog')
+// después de publicar un post para forzar actualización inmediata.
+export const revalidate = 3600;
 
 import Link from "next/link";
+import type { Metadata } from "next";
 import { prisma } from "@/lib/prisma";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description:
+    "Consejos de entrenamiento, nutrición y hábitos saludables. Artículos basados en ciencia para mejorar tu rendimiento y tu composición corporal.",
+};
 
 export default async function BlogPage() {
   const posts = await prisma.blogPost.findMany({

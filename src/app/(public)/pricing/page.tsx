@@ -1,7 +1,14 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { CheckCircle2, Sparkles } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Precios y Planes",
+  description:
+    "Elige el plan de coaching que se adapta a tus objetivos: Básico (79€/mes), Pro (149€/mes) o Elite (279€/mes). Cancela cuando quieras.",
+};
 
 const plans = [
   {

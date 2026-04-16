@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Dumbbell, Globe, Video, Mail } from "lucide-react";
+import { Dumbbell, Mail } from "lucide-react";
 
 export function Footer() {
   return (
@@ -39,19 +39,21 @@ export function Footer() {
           <div>
             <h4 className="font-heading text-sm font-semibold uppercase tracking-wider">Conecta</h4>
             <div className="mt-3 flex gap-3">
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Globe className="h-5 w-5" />
-              </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                <Video className="h-5 w-5" />
-              </a>
-              <a href="mailto:contacto@ugiarosfit.com" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a
+                href="mailto:contacto@ugiarosfit.com"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                aria-label="Enviar email a UgiarosFit"
+              >
                 <Mail className="h-5 w-5" />
               </a>
             </div>
             <p className="mt-4 text-sm text-muted-foreground">
-              contacto@ugiarosfit.com<br />
-              +34 612 345 678
+              <a
+                href="mailto:contacto@ugiarosfit.com"
+                className="hover:text-foreground transition-colors"
+              >
+                contacto@ugiarosfit.com
+              </a>
             </p>
           </div>
         </div>

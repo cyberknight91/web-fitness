@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail, Phone, MapPin, CheckCircle } from "lucide-react";
+import { Mail, Clock, Monitor, CheckCircle } from "lucide-react";
 import { toast } from "sonner";
 
 export default function ContactPage() {
@@ -70,25 +70,30 @@ export default function ContactPage() {
                 <Mail className="h-5 w-5 text-primary" />
                 <div>
                   <p className="text-sm font-medium">Email</p>
-                  <p className="text-sm text-muted-foreground">contacto@ugiarosfit.com</p>
+                  <a
+                    href="mailto:contacto@ugiarosfit.com"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    contacto@ugiarosfit.com
+                  </a>
                 </div>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="flex items-center gap-4 p-4">
-                <Phone className="h-5 w-5 text-primary" />
+                <Clock className="h-5 w-5 text-primary" />
                 <div>
-                  <p className="text-sm font-medium">Telefono</p>
-                  <p className="text-sm text-muted-foreground">+34 612 345 678</p>
+                  <p className="text-sm font-medium">Tiempo de respuesta</p>
+                  <p className="text-sm text-muted-foreground">Menos de 24 horas</p>
                 </div>
               </CardContent>
             </Card>
             <Card>
               <CardContent className="flex items-center gap-4 p-4">
-                <MapPin className="h-5 w-5 text-primary" />
+                <Monitor className="h-5 w-5 text-primary" />
                 <div>
-                  <p className="text-sm font-medium">Ubicacion</p>
-                  <p className="text-sm text-muted-foreground">Zona Centro, Madrid</p>
+                  <p className="text-sm font-medium">Modalidad</p>
+                  <p className="text-sm text-muted-foreground">Presencial y online</p>
                 </div>
               </CardContent>
             </Card>
