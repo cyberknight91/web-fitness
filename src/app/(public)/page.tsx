@@ -211,7 +211,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="font-heading text-4xl font-extrabold tracking-tight sm:text-5xl">
-              Por que elegir <span className="text-gradient">FitPro</span>?
+              Por que elegir <span className="text-gradient">UgiarosFit</span>?
             </h2>
           </div>
           <div className="mt-14 grid gap-10 md:grid-cols-3">

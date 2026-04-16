@@ -70,7 +70,7 @@ export default function ContactPage() {
                 <Mail className="h-5 w-5 text-primary" />
                 <div>
                   <p className="text-sm font-medium">Email</p>
-                  <p className="text-sm text-muted-foreground">contacto@fitpro.com</p>
+                  <p className="text-sm text-muted-foreground">contacto@ugiarosfit.com</p>
                 </div>
               </CardContent>
             </Card>

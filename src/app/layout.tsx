@@ -16,9 +16,9 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "FitPro | Entrenamiento Personal y Nutricion",
+  title: "UgiarosFit | Entrenamiento Personal y Nutricion",
   description:
-    "Transforma tu cuerpo y mente con programas de entrenamiento personalizados y planes de nutricion de FitPro.",
+    "Transforma tu cuerpo y mente con programas de entrenamiento personalizados y planes de nutricion de UgiarosFit.",
   manifest: "/manifest.json",
 };
 

@@ -12,7 +12,7 @@ export function Footer() {
               <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10 text-primary ring-1 ring-primary/20">
                 <Dumbbell className="h-4 w-4" />
               </span>
-              Fit<span className="text-gradient">Pro</span>
+              Ugiaros<span className="text-gradient">Fit</span>
             </Link>
             <p className="mt-3 text-sm text-muted-foreground">
               Transforma tu cuerpo y mente con entrenamiento personal y coaching nutricional de expertos.
@@ -45,18 +45,18 @@ export function Footer() {
               <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
                 <Video className="h-5 w-5" />
               </a>
-              <a href="mailto:contacto@fitpro.com" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="mailto:contacto@ugiarosfit.com" className="text-muted-foreground hover:text-foreground transition-colors">
                 <Mail className="h-5 w-5" />
               </a>
             </div>
             <p className="mt-4 text-sm text-muted-foreground">
-              contacto@fitpro.com<br />
+              contacto@ugiarosfit.com<br />
               +34 612 345 678
             </p>
           </div>
         </div>
         <div className="mt-8 border-t border-border/40 pt-6 text-center text-xs text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} FitPro. Todos los derechos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} UgiarosFit. Todos los derechos reservados.</p>
           <p className="mt-1">Entrenador personal: <span className="text-foreground/80">Victor Ajileas Ugiaros</span></p>
         </div>
       </div>

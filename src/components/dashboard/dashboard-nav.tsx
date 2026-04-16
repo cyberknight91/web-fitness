@@ -27,7 +27,7 @@ export function DashboardNav() {
       <aside className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0 border-r border-border/40 bg-card">
         <div className="flex h-16 items-center gap-2 border-b border-border/40 px-6">
           <Dumbbell className="h-6 w-6 text-primary" />
-          <span className="font-heading text-lg font-bold">FitPro</span>
+          <span className="font-heading text-lg font-bold">UgiarosFit</span>
         </div>
         <nav className="flex-1 space-y-1 px-3 py-4">
           {navItems.map((item) => (
@@ -50,7 +50,7 @@ export function DashboardNav() {
 
       <header className="md:hidden fixed top-0 left-0 right-0 z-50 flex h-14 items-center justify-between border-b border-border/40 bg-background/80 backdrop-blur-md px-4">
         <Link href="/dashboard" className="flex items-center gap-2 font-heading font-bold">
-          <Dumbbell className="h-5 w-5 text-primary" /> FitPro
+          <Dumbbell className="h-5 w-5 text-primary" /> UgiarosFit
         </Link>
         <div className="flex items-center gap-1">
           <ThemeToggle />

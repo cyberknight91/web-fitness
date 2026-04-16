@@ -34,7 +34,7 @@ export default function LoginPage() {
     <>
       <div className="mb-8 text-center lg:hidden">
         <Link href="/" className="inline-flex items-center gap-2 font-heading text-2xl font-bold">
-          <Dumbbell className="h-7 w-7 text-primary" /> FitPro
+          <Dumbbell className="h-7 w-7 text-primary" /> UgiarosFit
         </Link>
       </div>
       <Card>

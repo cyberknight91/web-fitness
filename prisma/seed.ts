@@ -29,7 +29,7 @@ async function main() {
   // Admin
   const admin = await prisma.user.create({
     data: {
-      email: "admin@fitpro.com",
+      email: "admin@ugiarosfit.com",
       password: hashedAdmin,
       name: "Coach Alex Rivera",
       role: "ADMIN",
@@ -324,7 +324,7 @@ async function main() {
       },
       {
         clientName: "Emma Rodriguez",
-        testimonial: "After years of yo-yo dieting, FitPro helped me build a sustainable routine. I've gained confidence, strength, and a body I'm proud of. The coaching support was incredible.",
+        testimonial: "After years of yo-yo dieting, UgiarosFit helped me build a sustainable routine. I've gained confidence, strength, and a body I'm proud of. The coaching support was incredible.",
         weightBefore: 75,
         weightAfter: 62,
         duration: "6 months",
@@ -431,7 +431,7 @@ Start simple, stay consistent, and watch your nutrition compliance skyrocket.`,
 
   console.log("Seed completed successfully!");
   console.log("\nLogin credentials:");
-  console.log("  Admin: admin@fitpro.com / Admin123!");
+  console.log("  Admin: admin@ugiarosfit.com / Admin123!");
   console.log("  Client 1: maria@example.com / Client123!");
   console.log("  Client 2: james@example.com / Client123!");
   console.log("  Client 3: sarah@example.com / Client123!");

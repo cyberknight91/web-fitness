@@ -44,7 +44,7 @@ export function Navbar() {
             <Dumbbell className="h-5 w-5" />
           </span>
           <span>
-            Fit<span className="text-gradient">Pro</span>
+            Ugiaros<span className="text-gradient">Fit</span>
           </span>
         </Link>
 

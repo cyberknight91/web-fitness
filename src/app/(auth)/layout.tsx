@@ -8,7 +8,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
         <div className="text-center">
           <Link href="/" className="flex items-center justify-center gap-3 font-heading text-3xl font-bold">
             <Dumbbell className="h-10 w-10 text-primary" />
-            FitPro
+            UgiarosFit
           </Link>
           <p className="mt-4 max-w-sm text-muted-foreground">
             Tu transformacion comienza aqui. Registra tus entrenamientos, sigue tu plan nutricional y ve resultados reales.
